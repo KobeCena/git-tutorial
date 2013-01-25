@@ -1,0 +1,18 @@
+<fieldset>
+    <legend>User's Deck</legend>
+    <div>
+        Card Decks : <select id="user_deck">
+        <option value="">Select a Deck</option>
+        <?php if ( isset( $this->deckInfo ) ) : ?>
+            <?php foreach( $this->deckInfo as $deck ) : ?>
+                <option value="<?php echo $deck->deckId ?>"><?php echo $deck->deckName ?></option>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </select>
+    </div>
+    <?php if( isset( $this->deckInfo ) && count( $this->deckInfo ) < 10 ) : ?>
+        <div>
+            Deck Name : <input maxlength="25" type="text" id="deck_name"><button type="button" id="create_deck_btn">Create</button>
+        </div>
+    <?php endif; ?>
+</fieldset>

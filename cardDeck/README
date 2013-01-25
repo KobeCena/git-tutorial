@@ -1,0 +1,37 @@
+/ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * /
+/* This is a simple card deck handling program.  */
+/* Prepared By : Dhon Rocafort */
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+Requirements :
+    * PHP 5.3 or Higher
+    * mySQL
+    * Apache
+
+Components : 
+    Backend :
+        * php super customized lightweight MVC framework
+        * PHPDao ( Data Access Object )
+
+    Frontend :
+        * jQuery 1.7 and jQuery UI
+
+INSTALLATION :
+    * Paste the project to your ( www ) directory
+    * Import the sql file card_deck.sql
+    * Add a vhost for the project
+        Steps :
+            - Add the local domain to the etc/hosts file ( Windows : C:\Windows\System32\drivers\etc\hosts ) , ( Linux : /etc/hosts ) , ( Mac [ follow this tutorial "http://davidwalsh.name/create-virtual-host" ] )
+                ex. 127.0.0.1       carddeck.local.com
+            - Add a vhost to the apache httpd.conf file
+                ex.
+                    <VirtualHost *:80>
+                        ServerName [local-domain-url]                        ----> carddeck.local.com
+                        DocumentRoot "[Path-to-Project -- \public]"     ----> C:\wamp\www\project\public
+                    </VirtualHost>
+                    
+    * To test if PHPDao is working browse local-domain-url/generate.php ( ex. http://carddeck.local.com/generate.php ) , it should display the generated files
+    
+ ==> YOU SHOULD BE READY TO GO... Enjoy Browsing the project.
+ ==> For any concerns email me at : dhon.rocafort@gmail.com , or PM me at Skype ( ID : dhon_rocafort )
+    

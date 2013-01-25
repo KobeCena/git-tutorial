@@ -1,0 +1,52 @@
+<div id="current_deck">
+    <?php if ( isset( $this->deckCards ) ) : ?>
+        <?php foreach ( $this->deckCards as $deckCard ) : $this->cardPerDeck--; ?>
+            <div class="card_container">
+                <div class="card_information">
+                    <div class="strength_info">Strength : <?php echo $deckCard->cardInfo->strength ?></div>
+                    <div class="defense_info">Defense : <?php echo $deckCard->cardInfo->defense ?></div>
+                    <div class="card_face">
+                        <img title="<?php echo ( $deckCard->skillInfo->skillName != "" ) ? 'Skill : ' . $deckCard->skillInfo->skillName : ''; ?>" src="/assets/images/faces/<?php echo $deckCard->cardFace->cardFaceName ?>" />
+                    </div>
+                    <div class="card_name">
+                        <?php echo $deckCard->cardInfo->cardname ?>
+                    </div>
+                </div>
+                <?php if( isset( $this->currentDeckSelected ) ) : ?>
+                    <div class="card_btns">
+                        <button type="button" id="change_card" class="btnLong" deckcard_id="<?php echo $deckCard->deckCardId; ?>">Change Card</button>
+                    </div>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+        <?php for( $i = $this->cardPerDeck; $i > 0 ; $i-- ) : ?>
+            <div class="card_container">
+                <div class="card_information">
+                    <div class="strength_info">??</div>
+                    <div class="defense_info">??</div>
+                    <div class="card_face">
+                        <img title="blank" src="/assets/images/blank_card.jpg" />
+                    </div>
+                    <div class="card_name">
+                        Blank Card
+                    </div>
+                </div>
+                <?php if( isset( $this->currentDeckSelected ) ) : ?>
+                <div class="card_btns">
+                <button type="button" id="select_card" class="btnLong" deckcard_id="">Select Card</button>
+            </div>
+                <?php endif; ?>
+            </div>
+        <?php endfor; ?>
+    <?php else: ?>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac magna non augue porttitor scelerisque ac id diam. Mauris elit velit, lobortis sed interdum at, vestibulum vitae libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque iaculis ligula ut ipsum mattis viverra. Nulla a libero metus. Integer gravida tempor metus eget condimentum. Integer eget iaculis tortor. Nunc sed ligula sed augue rutrum ultrices eget nec odio. Morbi rhoncus, sem laoreet tempus pulvinar, leo diam varius nisi, sed accumsan ligula urna sed felis. Mauris molestie augue sed nunc adipiscing et pharetra ligula suscipit. In euismod lectus ac sapien fringilla ut eleifend lacus venenatis.  </p>
+    <p>Proin ut quam eros. Donec sed lobortis diam. Nulla nec odio lacus. Quisque porttitor egestas dolor in placerat. Nunc vehicula dapibus ipsum. Duis venenatis risus non nunc fermentum dapibus. Morbi lorem ante, malesuada in mollis nec, auctor nec massa. Aenean tempus dui eget felis blandit at fringilla urna ultrices. Suspendisse feugiat, ante et viverra lacinia, lectus sem lobortis dui, ultricies consectetur leo mauris at tortor. Nunc et tortor sit amet orci consequat semper. Nulla non fringilla diam.  </p>
+    <?php endif; ?>
+    <?php if( $this->deckSummary ) : ?>
+        <script>
+            jQuery("div#current_deck_summary div.strength_info").html( "<?php echo ( isset( $this->deckSummary->strength ) ) ? 'Overall Strength : ' . $this->deckSummary->strength : 'Overall Strength : --'; ?>" );
+            jQuery("div#current_deck_summary div.defense_info").html( "<?php echo ( isset( $this->deckSummary->defense ) ) ? 'Overall Defense : ' . $this->deckSummary->defense : 'Overall Defense : --'; ?>" );
+            jQuery("div#current_deck_summary div.skill_info").html( "<?php echo ( isset( $this->deckSummary->skills ) ) ? 'Overall Skills : <br/>' . implode( '<br/>' , $this->deckSummary->skills ) : 'Overall Skills : --'; ?>" );
+        </script>
+    <?php endif; ?>
+</div>

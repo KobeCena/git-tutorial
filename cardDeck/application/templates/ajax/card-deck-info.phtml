@@ -1,0 +1,33 @@
+<div id="user_deck_info">
+    <ul>
+        <li id="avatar_container">
+            <div id="user_avatar">
+                <?php if( isset( $this->userInfo->userId ) ) : ?>
+                <div id="avatar_image" class="avatar_image_class<?php echo ($this->userInfo->userId % 4); ?>">&nbsp;</div>
+                <h2 class="mrgn-15"><?php echo $this->userInfo->userName ?></h2>
+                <?php endif; ?>
+            </div>
+        </li>
+        <li id="current_deck_container">
+            <?php echo $this->render('ajax/deck-cards'); ?>
+        </li>
+        <li id="deck_selection">
+            <?php echo $this->render('ajax/deck-panel'); ?>
+        </li>
+        <li id="deck_summary">
+            <?php echo $this->render('ajax/deck-summary'); ?>
+        </li>
+        <li id="generate_card">
+            <fieldset>
+                <legend>Generate Cards / Skill</legend>
+                <div>
+                    Count : <input maxlength="2" type="text" id="number_of_cards"><button type="button" id="card_generate_btn" class="btnLong">Create Cards</button>
+                </div>
+                <hr>
+                <div>
+                    Skill : <input maxlength="15" type="text" id="skill_name"><button type="button" id="skill_generate_btn" class="btnLong">Create Skill</button>
+                </div>
+            </fieldset>
+        </li>
+    </ul>
+</div>

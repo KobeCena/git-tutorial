@@ -1,0 +1,29 @@
+<?php if( count( $this->allCards ) > 0 ) : ?>
+    <table id="all_cards" data_carddeck_ref="">
+        <thead>
+            <tr>
+                <th align=left>#</th>
+                <th align=left>Card Name</th>
+                <th align=left>Strength</th>
+                <th align=left>Defense</th>
+                <th align=left>Skill</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $ct = 0;
+                foreach ( $this->allCards as $card ) : ?>
+                <tr>
+                    <td><?php echo ++$ct ;?></td>
+                    <td><span face="<?php echo $card->cardFace->cardFaceName ;?>" card_id="<?php echo $card->cardId ?>"><?php echo $card->cardname ?></span></td>
+                    <td><?php echo $card->strength ;?></td>
+                    <td><?php echo $card->defense ;?></td>
+                    <td><?php echo $card->skills->skillName ;?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php else : ?>
+    <div style="width:98%; float:left; color: #ff4500; font-size: 14px; font-family: cursive;">
+        No available Card(s)
+    </div>
+<?php endif; ?>

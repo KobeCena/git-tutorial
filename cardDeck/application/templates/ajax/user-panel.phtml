@@ -1,0 +1,14 @@
+<fieldset id="user_panel_field">
+    <legend>Users</legend>
+    <div>
+        select user : <select id="user_select">
+            <option value="">Select a User</option>
+            <?php if ( isset( $this->users ) ) : ?>
+                <?php foreach( $this->users as $user ) : ?>
+                    <option value="<?php echo $user->userId ?>"><?php echo $user->userName ?></option>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </select>
+    </div>
+    <div>create user : <input maxlength="10" type="text" id="user_create"><button type="button" id="create_btn">Create</button></div>
+</fieldset>
